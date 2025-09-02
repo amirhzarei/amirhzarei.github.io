@@ -3,7 +3,7 @@
 1. Clone this repository:
 
    ```bash
-   git clone https://github.com/Abhiz2411/3D-interactive-portfolio.git
+   git clone
    ```
 
 2. Navigate to the project directory:
