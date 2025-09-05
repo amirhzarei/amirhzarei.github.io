@@ -3,6 +3,7 @@ import SlideShow from "@/components/slide-show";
 import { Button } from "@/components/ui/button";
 import { TypographyP } from "@/components/ui/typography";
 import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { ReactNode } from "react";
 import { FaAws } from "react-icons/fa6";
@@ -254,7 +255,7 @@ const PROJECT_SKILLS = {
     title: "OpenAI",
     bg: "black",
     fg: "white",
-    icon: <img src="assets/icons/openai-svgrepo-com_white.svg" alt="OpenAI" />,
+    icon: <Image src="assets/icons/openai-svgrepo-com_white.svg" alt="OpenAI" />,
   },
   netlify: {
     title: "Netlify",
@@ -290,7 +291,7 @@ const PROJECT_SKILLS = {
     title: "Java",
     bg: "black",
     fg: "white",
-    icon: <img src="assets/icons/icons8-java.svg" alt="Java" />,
+    icon: <Image src="assets/icons/icons8-java.svg" alt="Java" />,
   },
   cplusplus: {
     title: "C++",

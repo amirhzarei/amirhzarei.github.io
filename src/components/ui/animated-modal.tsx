@@ -412,7 +412,7 @@ export const ModalFooter = ({
         if (React.isValidElement(child) && child.props.onClick === undefined) {
           // If it's a Cancel button, add close functionality
           if (child.props.children === "Cancel" && setOpen) {
-            return React.cloneElement(child, {
+            return React.cloneElement(child as React.ReactElement<any>, {
               onClick: () => setOpen(false),
             });
           }
