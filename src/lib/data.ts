@@ -69,7 +69,7 @@ export const MY_STACK = {
     },
     {
       name: "AI Tools",
-      icon: "/logo/ai-tools.png",
+      icon: "/logo/aI-tools.png",
     },
   ],
   //   backend: [

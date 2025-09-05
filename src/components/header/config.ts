@@ -29,12 +29,12 @@ const links: Link[] = [
   {
     title: "Projects",
     href: "/#projects",
-    thumbnail: "/assets/nav-link-previews/projects.png",
+    thumbnail: "/assets/nav-link-previews/projects.jpg",
   },
   {
     title: "Blogs",
-    href: "/blogs",
-    thumbnail: "/assets/nav-link-previews/blog.png",
+    href: "https://blog-flax-theta.vercel.app",
+    thumbnail: "/assets/nav-link-previews/blog.jpg",
     target: "-blank",
   },
   {

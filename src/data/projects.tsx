@@ -1,11 +1,11 @@
 import AceTernityLogo from "@/components/logos/aceternity";
 import SlideShow from "@/components/slide-show";
 import { Button } from "@/components/ui/button";
-import { TypographyH3, TypographyP } from "@/components/ui/typography";
-import { ArrowDownUpIcon, ArrowUpRight, ExternalLink, Link2, MoveUpRight } from "lucide-react";
-import Image from "next/image";
+import { TypographyP } from "@/components/ui/typography";
+import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { ReactNode } from "react";
+import { FaAws } from "react-icons/fa6";
 import { RiNextjsFill, RiNodejsFill, RiReactjsFill } from "react-icons/ri";
 import {
   SiChakraui,
@@ -34,9 +34,9 @@ import {
   SiApachemaven,
   SiCplusplus,
   SiArduino,
+  SiAstro,
 } from "react-icons/si";
 import { TbBrandFramerMotion } from "react-icons/tb";
-import css from "styled-jsx/css";
 const BASE_PATH = "/assets/projects-screenshots";
 
 const ProjectsLinks = ({ live, repo }: { live: string; repo?: string }) => {
@@ -82,6 +82,18 @@ const PROJECT_SKILLS = {
     bg: "black",
     fg: "white",
     icon: <RiNextjsFill />,
+  },
+  astro: {
+    title: "Astro",
+    bg: "black",
+    fg: "white",
+    icon: <SiAstro />,
+  },
+  aws: {
+    title: "AWS",
+    bg: "black",
+    fg: "white",
+    icon: <FaAws />,
   },
   chakra: {
     title: "Chakra UI",
@@ -305,614 +317,96 @@ export type Project = {
   live: string;
 };
 const projects: Project[] = [
-  // {
-  //   id: "codingducks",
-  //   category: "Coding platform",
-  //   title: "Coding Ducks",
-  //   src: "/assets/projects-screenshots/codingducks/landing.png",
-  //   screenshots: ["landing.png"],
-  //   skills: {
-  //     frontend: [
-  //       PROJECT_SKILLS.ts,
-  //       PROJECT_SKILLS.next,
-  //       PROJECT_SKILLS.chakra,
-  //       PROJECT_SKILLS.reactQuery,
-  //       PROJECT_SKILLS.firebase,
-  //     ],
-  //     backend: [
-  //       PROJECT_SKILLS.node,
-  //       PROJECT_SKILLS.express,
-  //       PROJECT_SKILLS.prisma,
-  //       PROJECT_SKILLS.python,
-  //       PROJECT_SKILLS.postgres,
-  //       PROJECT_SKILLS.sockerio,
-  //     ],
-  //   },
-  //   live: "https://www.codingducks.xyz/",
-  //   github: "https://github.com/Naresh-Khatri/Coding-Ducks",
-  //   get content() {
-  //     return (
-  //       <div>
-  //         <TypographyP className="font-mono text-2xl text-center">
-  //           Coding ducks = LeetCode + CodePen + CSS Battles
-  //         </TypographyP>
-  //         <TypographyP className="font-mono ">
-  //           Coding Ducks is your coding dojo — where you level up your skills,
-  //           battle in real-time code duels, and earn badges like a true code
-  //           warrior. Track your progress, flex your brain, and climb the
-  //           leaderboard. Ready to quack the code?
-  //         </TypographyP>
-  //         <ProjectsLinks live={this.live} repo={this.github} />
-  //         <TypographyH3 className="my-4 mt-8">Problems </TypographyH3>
-  //         <p className="font-mono mb-2">
-  //           Solve coding problems similar to LeetCode, enhancing your
-  //           problem-solving skills across various languages.
-  //         </p>
-  //         <SlideShow
-  //           images={[
-  //             `${BASE_PATH}/codingducks/problems.png`,
-  //             `${BASE_PATH}/codingducks/problem.png`,
-  //           ]}
-  //         />
-  //         <TypographyH3 className="my-4 mt-8">Ducklets</TypographyH3>
-  //         <p className="font-mono mb-2">
-  //           Collaborate in real-time with others in a multiplayer coding
-  //           environment, just like CodePen but with a social twist.
-  //         </p>
-  //         <SlideShow
-  //           images={[
-  //             `${BASE_PATH}/codingducks/ducklets.png`,
-  //             `${BASE_PATH}/codingducks/ducklet1.png`,
-  //             `${BASE_PATH}/codingducks/ducklet2.png`,
-  //           ]}
-  //         />
-  //         <TypographyH3 className="my-4 mt-8">UI Battles </TypographyH3>
-
-  //         <p className="font-mono mb-2">
-  //           Challenge yourself to create UI components with HTML/CSS/JS, and get
-  //           instant feedback with an automated similarity scoring.
-  //         </p>
-  //         <SlideShow
-  //           images={[
-  //             `${BASE_PATH}/codingducks/css-battles.png`,
-  //             `${BASE_PATH}/codingducks/css-battle.png`,
-  //             `${BASE_PATH}/codingducks/css-battle2.png`,
-  //           ]}
-  //         />
-  //         <TypographyH3 className="my-4 mt-8">Contests </TypographyH3>
-  //         <p className="font-mono mb-2">
-  //           Organize or participate in coding competitions. Successfully used to
-  //           host three contests during college.
-  //         </p>
-  //         <SlideShow images={[`${BASE_PATH}/codingducks/contests.png`]} />
-  //         <TypographyH3 className="my-4 mt-8">Playground </TypographyH3>
-  //         <p className="font-mono mb-2">
-  //           Test and execute your code instantly in my versatile online code
-  //           runner.
-  //         </p>
-  //         <SlideShow images={[`${BASE_PATH}/codingducks/playground.png`]} />
-  //         <TypographyH3 className="my-4 mt-8">Users</TypographyH3>
-
-  //         <p className="font-mono mb-2">
-  //           Track your progress, earn badges, and climb the rankings with
-  //           detailed user profiles and activity tracking.
-  //         </p>
-  //         <SlideShow
-  //           images={[
-  //             `${BASE_PATH}/codingducks/users.png`,
-  //             `${BASE_PATH}/codingducks/user.png`,
-  //           ]}
-  //         />
-  //       </div>
-  //     );
-  //   },
-  // },
-  // {
-  //   id: "couponluxury",
-  //   category: "Coupon site",
-  //   title: "Coupon Luxury",
-  //   src: "/assets/projects-screenshots/couponluxury/landing.png",
-  //   screenshots: ["1.png", "2.png", "3.png", "4.png", "5.png"],
-  //   live: "https://www.couponluxury.com/",
-  //   skills: {
-  //     frontend: [
-  //       PROJECT_SKILLS.js,
-  //       PROJECT_SKILLS.next,
-  //       PROJECT_SKILLS.chakra,
-  //       PROJECT_SKILLS.vue,
-  //     ],
-  //     backend: [
-  //       PROJECT_SKILLS.node,
-  //       PROJECT_SKILLS.express,
-  //       PROJECT_SKILLS.prisma,
-  //       PROJECT_SKILLS.postgres,
-  //       PROJECT_SKILLS.docker,
-  //     ],
-  //   },
-  //   get content(): JSX.Element {
-  //     return (
-  //       <div>
-  //         <TypographyP className="font-mono ">
-  //           CouponLuxury is your go-to destination for snagging the best deals
-  //           without lifting a finger. Whether you&apos;re hunting for the latest
-  //           discounts or trying to save a buck at your favorite stores,
-  //           CouponLuxury&apos;s got you covered.
-  //         </TypographyP>
-  //         <ProjectsLinks live={this.live} repo={this.github} />
-  //         <p className="font-mono mb-2 mt-4">
-  //           As soon as you land, boom! You&apos;re greeted with the freshest
-  //           coupons and top-tier deals that&apos;ll make your wallet happy.
-  //         </p>
-  //         <SlideShow images={[`${BASE_PATH}/couponluxury/landing.png`]} />
-  //         <TypographyH3 className="my-4 ">Stores</TypographyH3>
-  //         <p className="font-mono mb-2">
-  //           Dive into a comprehensive list of stores, each packed with exclusive
-  //           deals and discounts. It&apos;s like having a VIP pass to every sale
-  //           in town.
-  //         </p>
-  //         <SlideShow
-  //           images={[
-  //             `${BASE_PATH}/couponluxury/stores.png`,
-  //             `${BASE_PATH}/couponluxury/store.png`,
-  //           ]}
-  //         />
-  //         <TypographyH3 className="my-4 mt-8">Categories</TypographyH3>
-
-  //         <p className="font-mono mb-2">
-  //           Whatever you&apos;re into—fashion, tech, food—you&apos;ll find it
-  //           neatly organized here. No more endless scrolling; just pick a
-  //           category and get the best offers instantly.
-  //         </p>
-  //         <SlideShow images={[`${BASE_PATH}/couponluxury/categories.png`]} />
-  //         <TypographyH3 className="my-4 mt-8">Custom CMS </TypographyH3>
-  //         <p className="font-mono mb-2">
-  //           Powered by Vue.js, this bad boy allows us to keep the content
-  //           dynamic and up-to-date. From flash sales to limited-time offers, my
-  //           CMS ensures everything&apos;s live and relevant.
-  //         </p>
-  //         <SlideShow
-  //           images={[
-  //             `${BASE_PATH}/couponluxury/cms-1.png`,
-  //             `${BASE_PATH}/couponluxury/cms-2.png`,
-  //           ]}
-  //         />
-  //         <p className="font-mono mb-2 mt-5">
-  //           Plus, I&apos;ve sprinkled in some extra magic like personalized
-  //           deal recommendations, user-friendly search features, and a sleek,
-  //           responsive design that works like a charm on any device.
-  //         </p>
-  //         <p className="font-mono mb-2">
-  //           CouponLuxury isn&apos;t just a website; it&apos;s your personal deal-hunting
-  //           assistant, ensuring you never miss out on a bargain!
-  //         </p>
-  //         {/* <TypographyP className="my-4 mt-8">
-  //         <strong>Misc:</strong>
-  //         Hosted not one, not two, but THREE coding contests (Codemacha) during
-  //         college. Safe to say, Coding Ducks passed the vibe check.
-  //       </TypographyP>
-  //       <TypographyP className="my-4 mt-8">
-  //         <strong>Target Audience:</strong>
-  //         For all the novice coders out there ready to make their mark.
-  //       </TypographyP> */}
-  //       </div>
-  //     );
-  //   },
-  // },
-  // {
-  //   id: "the-booking-desk",
-  //   category: "Travel",
-  //   title: "The Booking Desk",
-  //   src: "/assets/projects-screenshots/the-booking-desk/landing.png",
-  //   screenshots: ["1.png"],
-  //   live: "https://thebookingdesk.com/",
-  //   skills: {
-  //     frontend: [
-  //       PROJECT_SKILLS.ts,
-  //       PROJECT_SKILLS.next,
-  //       PROJECT_SKILLS.aceternity,
-  //       PROJECT_SKILLS.tailwind,
-  //     ],
-  //     backend: [PROJECT_SKILLS.sanity],
-  //   },
-  //   get content() {
-  //     return (
-  //       <div>
-  //         <TypographyP className="font-mono ">
-  //           The Booking Desk is your ultimate travel consultation hub, designed
-  //           to turn your wanderlust dreams into reality. With a focus on smooth
-  //           and visually captivating animations, navigating the site feels like
-  //           a breeze—it&apos;s almost as if the destinations are calling you.
-  //         </TypographyP>
-  //         <ProjectsLinks live={this.live} repo={this.github} />
-  //         <p className="font-mono mb-2 mt-8">
-  //           A sleek, modern interface greets you, featuring the latest travel
-  //           tips, deals, and must-visit spots around the globe.
-  //         </p>
-  //         <SlideShow images={[`${BASE_PATH}/the-booking-desk/landing.png`]} />
-  //         <TypographyH3 className="my-4 mt-8">Blogs</TypographyH3>
-  //         <p className="font-mono mb-2">
-  //           Dive into the curated articles written by travel experts. Whether
-  //           you&apos;re looking for hidden gems or travel hacks, our blog section has
-  //           you covered.
-  //         </p>
-  //         <SlideShow
-  //           images={[
-  //             `${BASE_PATH}/the-booking-desk/blogs.png`,
-  //             `${BASE_PATH}/the-booking-desk/blog.png`,
-  //           ]}
-  //         />
-  //         <TypographyH3 className="my-4 mt-8">Sanity CMS</TypographyH3>
-
-  //         <p className="font-mono mb-2">
-  //           Keeping everything fresh and up-to-date, I&apos;ve integrated Sanity CMS
-  //           to manage all the content with ease, ensuring you always get the
-  //           latest and greatest information.
-  //         </p>
-  //         <SlideShow
-  //           images={[
-  //             `${BASE_PATH}/the-booking-desk/cms-1.png`,
-  //             `${BASE_PATH}/the-booking-desk/cms-2.png`,
-  //           ]}
-  //         />
-  //         <p className="font-mono mb-2 my-8">
-  //           With a stunning 100% score on Lighthouse, The Booking Desk isn&apos;t
-  //           just beautiful—it&apos;s built to perform. Whether you&apos;re planning your
-  //           next adventure or just daydreaming, our site delivers a top-notch
-  //           experience that&apos;s both informative and enjoyable.
-  //         </p>
-  //       </div>
-  //     );
-  //   },
-  // },
-  // { // Portfolio project
-  //   id: "portfolio",
-  //   category: "Portfolio",
-  //   title: "My Portfolio",
-  //   src: "/assets/projects-screenshots/portfolio/landing.png",
-  //   screenshots: ["1.png"],
-  //   live: "http://nareshkhatri.vercel.app",
-  //   github:"https://github.com/Naresh-Khatri/Portfolio",
-  //   skills: {
-  //     frontend: [
-  //       PROJECT_SKILLS.ts,
-  //       PROJECT_SKILLS.next,
-  //       PROJECT_SKILLS.shadcn,
-  //       PROJECT_SKILLS.aceternity,
-  //       PROJECT_SKILLS.framerMotion,
-  //       PROJECT_SKILLS.tailwind,
-  //       PROJECT_SKILLS.spline,
-  //     ],
-  //     backend: [],
-  //   },
-  //   get content() {
-  //     return (
-  //       <div>
-  //         <TypographyP className="font-mono ">
-  //           Welcome to my digital playground, where creativity meets code in the
-  //           dopest way possible.
-  //         </TypographyP>
-  //         <ProjectsLinks live={this.live} repo={this.github} />
-  //         <TypographyH3 className="my-4 mt-8">
-  //           Beautiful 3D Objects{" "}
-  //         </TypographyH3>
-  //         <p className="font-mono mb-2">
-  //           Did you see that 3D keyboard modal? Yeah! I made that. That
-  //           interactive keyboard is being rendered in 3D on a webpage 🤯, and
-  //           pressing each keycap reveals a skill in a goofy way. It&apos;s like
-  //           typing, but make it art.
-  //         </p>
-  //         <SlideShow
-  //           images={[
-  //             `${BASE_PATH}/portfolio/landing.png`,
-  //             `${BASE_PATH}/portfolio/skills.png`,
-  //           ]}
-  //         />
-  //         <TypographyH3 className="my-4 ">Space Theme</TypographyH3>
-  //         <p className="font-mono mb-2">
-  //           Dark background + floating particles = out-of-this-world cool.
-  //         </p>
-  //         <SlideShow images={[`${BASE_PATH}/portfolio/navbar.png`]} />
-  //         <TypographyH3 className="my-4 mt-8">Projects</TypographyH3>
-
-  //         <p className="font-mono mb-2">
-  //           My top personal and freelance projects — no filler, all killer.
-  //         </p>
-  //         <SlideShow
-  //           images={[
-  //             `${BASE_PATH}/portfolio/projects.png`,
-  //             `${BASE_PATH}/portfolio/project.png`,
-  //           ]}
-  //         />
-  //         <p className="font-mono mb-2 mt-8 text-center">
-  //           This site&apos;s not just a portfolio — it&apos;s a whole vibe.
-  //         </p>
-  //       </div>
-  //     );
-  //   },
-  // },
-  // { // GhostChat project
-  //   id: "ghostchat",
-  //   category: "Anonymous chat",
-  //   title: "GhostChat",
-  //   src: "/assets/projects-screenshots/ghostchat/1.png",
-  //   screenshots: ["1.png", "2.png", "3.png", "4.png"],
-  //   live: "https://ghostchat.vercel.app",
-  //   github:"https://github.com/Naresh-Khatri/GhostChat",
-  //   skills: {
-  //     frontend: [PROJECT_SKILLS.js, PROJECT_SKILLS.next, PROJECT_SKILLS.chakra],
-  //     backend: [PROJECT_SKILLS.supabase],
-  //   },
-  //   get content() {
-  //     return (
-  //       <div>
-  //         <TypographyP className="font-mono ">
-  //           Ghostchat is your go-to spot for sending anonymous messages without
-  //           leaving a trace. Powered by Supabase, it&apos;s all about keeping things
-  //           low-key and secure. Whether you&apos;re sharing secrets, giving feedback,
-  //           or just having some fun, Ghostchat ensures your identity stays
-  //           hidden, while your voice is heard. Say what you want, without the
-  //           worry.
-  //         </TypographyP>
-  //         <ProjectsLinks live={this.live} repo={this.github} />
-  //         <SlideShow
-  //           images={[
-  //             `${BASE_PATH}/ghostchat/1.png`,
-  //             `${BASE_PATH}/ghostchat/2.png`,
-  //             `${BASE_PATH}/ghostchat/3.png`,
-  //             `${BASE_PATH}/ghostchat/4.png`,
-  //           ]}
-  //         />
-  //       </div>
-  //     );
-  //   },
-  // },
-  // {
-  //   id: "jra",
-  //   category: "Result analyzer",
-  //   title: "JNTUA Results Analyzer",
-  //   src: "/assets/projects-screenshots/jra/1.png",
-  //   screenshots: ["1.png"],
-  //   live: "https://naresh-khatri.github.io/JNTUA-result-analyser-spa/#/",
-  //   skills: {
-  //     frontend: [PROJECT_SKILLS.js, PROJECT_SKILLS.vue],
-  //     backend: [
-  //       PROJECT_SKILLS.node,
-  //       PROJECT_SKILLS.mongo,
-  //       PROJECT_SKILLS.express,
-  //       PROJECT_SKILLS.docker,
-  //     ],
-  //   },
-  //   get content() {
-  //     return (
-  //       <div>
-  //         <TypographyP className="font-mono ">
-  //           JNTUA Results Analyzer was a revolutionary tool designed to simplify
-  //           and enhance the experience of accessing academic results. It served
-  //           as a powerful proxy between the JNTUA university results website and
-  //           its users, offering a range of features that made result analysis
-  //           faster and more efficient. Here&apos;s what made it stand out:
-  //         </TypographyP>
-  //         <ProjectsLinks live={this.live} repo={this.github} />
-  //         <SlideShow images={[`${BASE_PATH}/jra/1.png`]} />
-  //         <TypographyH3 className="my-4 mt-8">
-  //           Effortless Results Retrieval
-  //         </TypographyH3>
-  //         {/* Effortless Results Retrieval: */}
-  //         <ul className="list-disc ml-6">
-  //           <li className="font-mono">
-  //             Search all your results using a single roll number, eliminating
-  //             the tedious task of sifting through thousands of rows on the
-  //             official site.
-  //           </li>
-  //         </ul>
-  //         <TypographyH3 className="my-4 mt-8">Class-Wise Results:</TypographyH3>
-  //         <ul className="list-disc ml-6">
-  //           <li className="font-mono">
-  //             class-wise results effortlessly by entering a roll number range.
-  //             No more manual searches or filtering.
-  //           </li>
-  //         </ul>
-  //         <TypographyH3 className="my-4 mt-8">Faculty Features:</TypographyH3>
-  //         <ul className="list-disc ml-6">
-  //           <li className="font-mono">
-  //             Faculty members could download batch results in Excel format,
-  //             making administrative tasks a breeze.
-  //           </li>
-  //         </ul>
-  //         <TypographyH3 className="my-4 mt-8">
-  //           Enhanced Data Insights:
-  //         </TypographyH3>
-  //         <ul className="list-disc ml-6">
-  //           <li className="font-mono">
-  //             Each result came with additional features including:
-  //             <ul className="list-disc font-mono ml-6">
-  //               <li>
-  //                 <strong>CGPA Calculations: </strong>Easily track your
-  //                 cumulative grade point average.
-  //               </li>
-  //               <li>
-  //                 <strong>Charts:</strong> Visualize your academic performance
-  //                 with comprehensive charts.
-  //               </li>
-  //               <li>
-  //                 <strong>Future Projections:</strong> Get insights into
-  //                 potential future outcomes based on current performance.
-  //               </li>
-  //               <li>
-  //                 <strong> Backlog Counts: </strong>Keep track of your backlog
-  //                 subjects at a glance.
-  //               </li>
-  //             </ul>
-  //           </li>
-  //         </ul>
-  //         <TypographyH3 className="my-4 mt-8">Performance:</TypographyH3>
-  //         <ul className="list-disc ml-6">
-  //           <li className="font-mono">
-  //             The application was significantly faster and more efficient than
-  //             the official site, providing a smoother user experience.
-  //           </li>
-  //         </ul>
-  //         <TypographyH3 className="my-4 mt-8">Downfall:</TypographyH3>
-  //         <ul className="list-disc ml-6">
-  //           <li className="font-mono">
-  //             Unfortunately, as of May 2022, the tool stopped working due to the
-  //             introduction of CAPTCHA on the official JNTUA results site, which
-  //             disrupted the seamless functionality of the app. JNTUA Results
-  //             Analyzer transformed the way students and faculty interacted with
-  //             academic results, making it a must-have tool until its unexpected
-  //             shutdown.
-  //           </li>
-  //         </ul>
-  //       </div>
-  //     );
-  //   },
-  // },
-
-  // +
-  { // 01. AI Docker file optimizer project
-    id: "aidockerfileoptimizer",
-    category: "AI and DevOps",
-    title: "AI Dockerfile Optimizer",
-    src: "/assets/projects-screenshots/aidockerfileoptimizer/2.png",
+  {
+    id: "musicplayer",
+    category: "FrontEnd",
+    title: "Music Player",
+    src: "/assets/projects-screenshots/musicplayer/1.png",
     screenshots: ["1.png", "2.png", "3.png"],
-    live: "https://ai-docker-file-optimizer.netlify.app/",
-    github: "https://github.com/Abhiz2411/AI-Docker-file-optimizer",
+    live: "",
+    github: "https://github.com/amirhzarei/music-player",
     skills: {
-      frontend: [PROJECT_SKILLS.js, PROJECT_SKILLS.next, PROJECT_SKILLS.tailwind, PROJECT_SKILLS.vite],
-      backend: [PROJECT_SKILLS.openai, PROJECT_SKILLS.netlify],
+      frontend: [PROJECT_SKILLS.js, PROJECT_SKILLS.ts, PROJECT_SKILLS.react, PROJECT_SKILLS.tailwind, PROJECT_SKILLS.vite, PROJECT_SKILLS.framerMotion],
+      backend: [],
     },
     get content() {
       return (
         <div>
           <TypographyP className="font-mono ">
-            AI-Docker-file-optimizer helps optimize Dockerfiles for smaller, more efficient images.
-            Simply paste your Dockerfile, and the app analyzes it for best practices and size
-            optimization tips. It then provides a refactored, optimized version of the Dockerfile.
-            Deployed on Vercel, it ensures fast and easy access to Dockerfile optimization.
+            A clean, lightweight, installable Progressive Web App music player with offline-ready shell, local playlist persistence, and smooth micro-interactions — built to learn core PWA + modern React fundamentals without extra framework noise.
           </TypographyP>
           <ProjectsLinks live={this.live} repo={this.github} />
           <SlideShow
             images={[
-              `${BASE_PATH}/aidockerfileoptimizer/1.png`,
-              `${BASE_PATH}/aidockerfileoptimizer/2.png`,
-              `${BASE_PATH}/aidockerfileoptimizer/3.png`,
+              `${BASE_PATH}/musicplayer/1.png`,
+              `${BASE_PATH}/musicplayer/2.png`,
+              `${BASE_PATH}/musicplayer/3.png`,
             ]}
           />
         </div>
       );
     },
   },
-  { // 02. FinanceMe project
-    id: "financeme",
-    category: "DevOps in Banking and Finance",
-    title: "FinanceMe: Complete DevOps Capstone Project",
-    src: "/assets/projects-screenshots/financeme/1.png",
-    screenshots: ["/assets/projects-screenshots/financeme/1.png"],
+  {
+    id: "todolist",
+    category: "FrontEnd And BackEnd",
+    title: "Task Flow App",
+    src: "/assets/projects-screenshots/todolist/1.png",
+    screenshots: ["/assets/projects-screenshots/todolist/1.png"],
     skills: {
       frontend: [
         PROJECT_SKILLS.html,
         PROJECT_SKILLS.css,
         PROJECT_SKILLS.js,
-        PROJECT_SKILLS.bootstrap,
+        PROJECT_SKILLS.tailwind,
+        PROJECT_SKILLS.next,
+        PROJECT_SKILLS.ts
       ],
       backend: [
-        PROJECT_SKILLS.java,
-        PROJECT_SKILLS.maven,
-        PROJECT_SKILLS.postgres,
+        PROJECT_SKILLS.supabase,
       ],
     },
-    live: "https://github.com/Abhiz2411/FinanceMe-Devops-Project-01",
-    github: "https://github.com/Abhiz2411/FinanceMe-Devops-Project-01",
+    live: "",
+    github: "https://github.com/amirhzarei/To-Do-List",
     get content() {
       return (
         <div>
           <TypographyP className="font-mono text-2xl text-center">
-            FinanceMe: Complete DevOps Capstone Project
+            A modern, real-time task manager built with Next.js 14, TypeScript, TailwindCSS, and Radix UI offers collaborative list sharing, push notifications, commenting, file attachments, and activity logs.
           </TypographyP>
           <TypographyP className="font-mono ">
-            This project demonstrates the deployment of a DevOps pipeline for a global banking and
-            financial services provider, FinanceMe. The company transitioned from a monolithic
-            architecture to a microservice-based architecture to handle increased traffic and
-            scaling challenges. The project involves automating infrastructure provisioning, build
-            and deployment processes, and continuous monitoring using modern DevOps tools and
-            AWS services.?
+            A modern, real-time, offline-first task manager built with Next.js 14 App Router, TypeScript, TailwindCSS, and Radix UI primitives, following a clean architecture. This application enables users to organize their tasks into customizable lists, add comments and attachments to tasks, and smoothly reorder or delete tasks as needed. Collaboration is at the heart of the app—users can share task lists, invite others, view the number of collaborators in each list, and leave shared lists when desired. Real-time push notifications keep all participants updated on changes, while robust authentication ensures secure login and registration. The app features comprehensive activity logs for tracking changes, a powerful search for locating tasks or lists quickly, and a responsive design for seamless use across devices. Offline-first capabilities allow users to manage tasks even without an internet connection, making this task manager a reliable companion for both individual productivity and team collaboration.
           </TypographyP>
           <ProjectsLinks live={this.live} repo={this.github} />
-          <TypographyH3 className="my-4 mt-8">Architecture </TypographyH3>
-          <p className="font-mono mb-2">
-            The project is divided into three main phases:
-            1.Automating Infrastructure Provisioning
-            2.Build and Deployment Automation
-            3.Continuous Monitoring
-          </p>
           <SlideShow
             images={[
-              `${BASE_PATH}/financeme/1.png`,
-              `${BASE_PATH}/financeme/2.png`,
+              `${BASE_PATH}/todolist/1.png`,
+              `${BASE_PATH}/todolist/2.png`,
+              `${BASE_PATH}/todolist/3.png`,
+              `${BASE_PATH}/todolist/4.png`,
+              `${BASE_PATH}/todolist/5.png`,
+              `${BASE_PATH}/todolist/6.png`,
             ]}
           />
-          <TypographyH3 className="my-4 mt-8">Automating Infrastructure Provisioning</TypographyH3>
-          <p className="font-mono mb-2">
-            Terraform is used to create 4 AWS EC2 instances:
-            Jenkins Master Node (for CI/CD pipeline management)
-            Build Server (for application and Docker image builds)
-            Production Server (for deploying Dockerized applications)
-            Monitoring Server (for continuous monitoring of Build and Prod servers)
-          </p>
-          <SlideShow
-            images={[
-              `${BASE_PATH}/financeme/4_A.png`,
-              `${BASE_PATH}/financeme/4.png`,
-            ]}
-          />
-          <TypographyH3 className="my-4 mt-8">Build and Deployment Automation</TypographyH3>
-
-          <p className="font-mono mb-2">
-            Jenkins is configured for a CI/CD pipeline:
-            Jenkins Master Node is responsible for pipeline orchestration.
-            Build Server is configured as a Jenkins Slave Node to handle application builds and Docker image creation.
-            Ansible is used for automating deployment to the Prod server, where the application is deployed using an Ansible client-server model.
-          </p>
-          <SlideShow
-            images={[
-              `${BASE_PATH}/financeme/5.png`,
-              `${BASE_PATH}/financeme/6.png`,
-              `${BASE_PATH}/financeme/7.png`,
-            ]}
-          />
-          <TypographyH3 className="my-4 mt-8">Continuous Monitoring </TypographyH3>
-          <p className="font-mono mb-2">
-            Prometheus and Grafana are used for real-time monitoring:
-            Node Exporter is installed on both Build and Prod servers to collect server metrics (CPU, Disk Space, Memory Utilization).
-            Grafana Dashboard is created to visualize these metrics for continuous monitoring.
-          </p>
-          <SlideShow images={[
-            `${BASE_PATH}/financeme/3.png`,
-            `${BASE_PATH}/financeme/8.png`,
-            `${BASE_PATH}/financeme/9.png`,
-            `${BASE_PATH}/financeme/10.png`,
-          ]} />
         </div>
       );
     },
   },
-  { // 03. Portfolio project
-    id: "portfolio",
-    category: "Portfolio",
-    title: "My Portfolio",
-    src: "/assets/projects-screenshots/myportfolio/landing.png",
-    screenshots: ["assets/projects-screenshots/myportfolio/landing.png"],
-    live: "https://www.abhijitzende.com/",
-    github: "https://github.com/Abhiz2411/3D-interactive-portfolio",
+  {
+    id: "blog",
+    category: "FrontEnd",
+    title: "My Blog",
+    src: "/assets/projects-screenshots/blog/1.png",
+    screenshots: ["assets/projects-screenshots/blog/1.png"],
+    live: "https://blog-flax-theta.vercel.app",
+    github: "https://github.com/amirhzarei/blog",
     skills: {
       frontend: [
         PROJECT_SKILLS.ts,
-        PROJECT_SKILLS.next,
-        PROJECT_SKILLS.shadcn,
-        PROJECT_SKILLS.aceternity,
         PROJECT_SKILLS.framerMotion,
         PROJECT_SKILLS.tailwind,
-        PROJECT_SKILLS.spline,
+        PROJECT_SKILLS.js,
+        PROJECT_SKILLS.astro
       ],
       backend: [],
     },
@@ -920,150 +414,269 @@ const projects: Project[] = [
       return (
         <div>
           <TypographyP className="font-mono ">
-            Welcome to my digital playground, where creativity meets code in the
-            dopest way possible.
+            Welcome to my corner of the web—where pixels, code, and creativity collide to build dope experiences.
           </TypographyP>
           <ProjectsLinks live={this.live} repo={this.github} />
-          <TypographyH3 className="my-4 mt-8">
-            Beautiful 3D Objects{" "}
-          </TypographyH3>
           <p className="font-mono mb-2">
-            Did you see that 3D keyboard modal? Yeah! I made that. That
-            interactive keyboard is being rendered in 3D on a webpage 🤯, and
-            pressing each keycap reveals a skill in a goofy way. It&apos;s like
-            typing, but make it art.
+            Welcome to my digital corner, where design and development crash into each other in the best way possible. I’m obsessed with building playful, interactive experiences that go beyond static pixels—think 3D keyboards, quirky UI experiments, and creative takes on the web. This blog is my space to share those ideas, break down the process, and maybe spark some inspiration along the way. Whether you’re here for code snippets, design vibes, or just curious experiments, you’re in the right place.
           </p>
           <SlideShow
             images={[
-              `${BASE_PATH}/myportfolio/landing.png`,
-              `${BASE_PATH}/portfolio/skills.png`,
-            ]}
-          />
-          <TypographyH3 className="my-4 ">Space Theme</TypographyH3>
-          <p className="font-mono mb-2">
-            Dark background + floating particles = out-of-this-world cool.
-          </p>
-          <SlideShow images={[`${BASE_PATH}/myportfolio/navbar.png`]} />
-          <TypographyH3 className="my-4 mt-8">Projects</TypographyH3>
-
-          <p className="font-mono mb-2">
-            My top personal and freelance projects — no filler, all killer.
-          </p>
-          <SlideShow
-            images={[
-              `${BASE_PATH}/myportfolio/projects.png`,
-              `${BASE_PATH}/myportfolio/project.png`,
-            ]}
-          />
-          <p className="font-mono mb-2 mt-8 text-center">
-            This site&apos;s not just a portfolio — it&apos;s a whole vibe.
-          </p>
-        </div>
-      );
-    },
-  },
-  { // 04. Smart parking assitant
-    id: "smartparkingassitant",
-    category: "IoT",
-    title: "Smart Parking Assistant",
-    src: "/assets/projects-screenshots/smartparkingassitant/01.jpeg",
-    screenshots: ["01.jpeg", "03.png"],
-    live: "https://github.com/Abhiz2411/smart-parking-assistant",
-    github: "https://github.com/Abhiz2411/smart-parking-assistant",
-    skills: {
-      frontend: [PROJECT_SKILLS.python],
-      backend: [PROJECT_SKILLS.cplusplus, PROJECT_SKILLS.arduino],
-    },
-    get content() {
-      return (
-        <div>
-          <TypographyP className="font-mono ">
-            Transform parking with the Smart Parking Assistant, an IoT marvel powered by Arduino
-            and IR sensors to detect and recommend the best spots in real-time. Enjoy a sleek GUI
-            that visualizes availability and an intelligent system for quick, optimal decisions.
-            Built to adapt with customizable hardware and Python-powered software for seamless
-            integration. Say goodbye to parking woes and hello to smarter space utilization!
-          </TypographyP>
-          <ProjectsLinks live={this.live} repo={this.github} />
-          <SlideShow
-            images={[
-              `${BASE_PATH}/smartparkingassitant/01.jpeg`,
-              `${BASE_PATH}/smartparkingassitant/03.png`,
-              `${BASE_PATH}/smartparkingassitant/04.jpg`,
+              `${BASE_PATH}/blog/1.png`,
+              `${BASE_PATH}/blog/2.png`,
+              `${BASE_PATH}/blog/3.png`,
+              `${BASE_PATH}/blog/4.png`,
+              `${BASE_PATH}/blog/5.png`,
             ]}
           />
         </div>
       );
     },
   },
-  { // 05. Smart Job Tracker project
-    id: "smartjobtracker",
-    category: "Full stack",
-    title: "Smart Job Tracker",
-    src: "/assets/projects-screenshots/smartjobtracker/02.png",
-    screenshots: ["01.png", "02.png", "03.png", "04.png", "05.png", "06.png", "07.png"],
-    live: "https://job-tracker-application-eight.vercel.app/",
-    github: "https://github.com/Abhiz2411/Job-tracker-application",
+  {
+    id: "portfolio",
+    category: "FrontEnd",
+    title: "My Portfolio",
+    src: "/assets/nav-link-previews/home.png",
+    screenshots: ["about.png", "skils.png"],
+    live: "https://amirhzarei.github.io/",
+    github: "https://github.com/amirhzarei/amirhzarei.github.io",
     skills: {
-      frontend: [PROJECT_SKILLS.js, PROJECT_SKILLS.next, PROJECT_SKILLS.tailwind, PROJECT_SKILLS.vite],
-      backend: [PROJECT_SKILLS.firebase],
-    },
-    get content() {
-      return (
-        <div>
-          <TypographyP className="font-mono ">
-            Track your job applications effortlessly with a sleek, dark-themed app that lets you
-            manage, filter, and visualize your job search. Organize your applications with a
-            Kanban board, monitor progress through status updates, and store everything securely.
-            Enjoy seamless access across devices with a responsive design and email reminders for
-            interviews. A smarter, more intuitive way to stay on top of your job hunt!
-          </TypographyP>
-          <ProjectsLinks live={this.live} repo={this.github} />
-          <SlideShow
-            images={[
-              `${BASE_PATH}/smartjobtracker/01.png`,
-              `${BASE_PATH}/smartjobtracker/02.png`,
-              `${BASE_PATH}/smartjobtracker/03.png`,
-              `${BASE_PATH}/smartjobtracker/04.png`,
-              `${BASE_PATH}/smartjobtracker/05.png`,
-              `${BASE_PATH}/smartjobtracker/06.png`,
-              `${BASE_PATH}/smartjobtracker/07.png`,
-            ]}
-          />
-        </div>
-      );
-    },
-  },
-  { // 06. Savinder Puri portfolio project
-    id: "savinderpurisportfolio",
-    category: "Web Development",
-    title: "Savinder Puri Portfolio",
-    src: "/assets/projects-screenshots/savinderpuriportfolio/01.png",
-    screenshots: ["01.png", "02.png", "03.png", "04.png", "05.png"],
-    live: "https://savinder-puri.vercel.app/",
-    github: "https://github.com/Abhiz2411/savinder-puri",
-    skills: {
-      frontend: [PROJECT_SKILLS.js, PROJECT_SKILLS.next, PROJECT_SKILLS.tailwind, PROJECT_SKILLS.vite],
+      frontend: [PROJECT_SKILLS.ts, PROJECT_SKILLS.framerMotion, PROJECT_SKILLS.gsap, PROJECT_SKILLS.next, PROJECT_SKILLS.tailwind],
       backend: [],
     },
     get content() {
       return (
         <div>
           <TypographyP className="font-mono ">
-            Step into the digital world of Savinder Puri, the beloved DevOps guru and Spiritual
-            Alchemist, with this responsive portfolio website. 🌐✨ Explore his inspiring journey,
-            milestones, and life-changing services blending tech and spirituality. Built with
-            modern tools like React and TypeScript, it’s a heartfelt tribute to a mentor who
-            transforms lives. 💻🕊️ Crafted with ❤️ by Abhijit Zende! 🚀
+            My portfolio is a collection of projects where creativity meets code. From sleek user interfaces to experimental 3D interactions, each piece reflects my passion for crafting experiences that feel intuitive, engaging, and a little unexpected. I focus on blending design and development—building not just functional websites, but memorable digital moments. Every project is a chance to push the limits of frontend, experiment with new ideas, and show what’s possible when code becomes a creative tool.
           </TypographyP>
           <ProjectsLinks live={this.live} repo={this.github} />
           <SlideShow
             images={[
-              `${BASE_PATH}/savinderpuriportfolio/01.png`,
-              `${BASE_PATH}/savinderpuriportfolio/02.png`,
-              `${BASE_PATH}/savinderpuriportfolio/03.png`,
-              `${BASE_PATH}/savinderpuriportfolio/04.png`,
-              `${BASE_PATH}/savinderpuriportfolio/05.png`,
+              `/assets/nav-link-previews/home.png`,
+              `/assets/nav-link-previews/about.png`,
+              `/assets/nav-link-previews/skils.png`,
+              `/assets/nav-link-previews/achivments.png`,
+              `/assets/nav-link-previews/achivments.png`,
+              `/assets/nav-link-previews/experience.png`,
+            ]}
+          />
+        </div>
+      );
+    },
+  },
+  {
+    id: "infinitescrolling",
+    category: "FrontEnd",
+    title: "Infinite Scrolling",
+    src: "/assets/projects-screenshots/infinitescrolling/1.png",
+    screenshots: ["1.png"],
+    live: "",
+    github: "https://github.com/amirhzarei/infinite-scrolling",
+    skills: {
+      frontend: [PROJECT_SKILLS.js, PROJECT_SKILLS.react, PROJECT_SKILLS.ts, PROJECT_SKILLS.vite, PROJECT_SKILLS.css, PROJECT_SKILLS.html],
+      backend: [],
+    },
+    get content() {
+      return (
+        <div>
+          <TypographyP className="font-mono ">
+            Infinite scrolling is a popular web interface pattern that automatically loads new content as users reach the bottom of a page, creating a seamless browsing experience without traditional pagination. A simple infinite scrolling project typically involves detecting when a user has scrolled near the bottom of the viewport, then triggering an API call or data fetch to load additional content items.
+          </TypographyP>
+          <ProjectsLinks live={this.live} repo={this.github} />
+          <SlideShow
+            images={[
+              `${BASE_PATH}/infinitescrolling/1.png`
+            ]}
+          />
+        </div>
+      );
+    },
+  },
+  {
+    id: "dynamicthem",
+    category: "FrontEnd",
+    title: "Dynamic Them",
+    src: "/assets/projects-screenshots/dynamicthem/1.png",
+    screenshots: ["1.png", "2.png", "3.png", "4.png", "5.png"],
+    live: "",
+    github: "https://github.com/amirhzarei/dynamic-them",
+    skills: {
+      frontend: [PROJECT_SKILLS.js, PROJECT_SKILLS.next, PROJECT_SKILLS.tailwind,],
+      backend: [],
+    },
+    get content() {
+      return (
+        <div>
+          <TypographyP className="font-mono ">
+            A dynamic theme project involves creating a web application or website that can automatically switch between different visual themes, most commonly light and dark modes, based on user preferences or system settings.
+          </TypographyP>
+          <ProjectsLinks live={this.live} repo={this.github} />
+          <SlideShow
+            images={[
+              `${BASE_PATH}/savinderpuriportfolio/1.png`,
+              `${BASE_PATH}/savinderpuriportfolio/2.png`,
+              `${BASE_PATH}/savinderpuriportfolio/3.png`,
+              `${BASE_PATH}/savinderpuriportfolio/4.png`,
+              `${BASE_PATH}/savinderpuriportfolio/5.png`,
+              `${BASE_PATH}/savinderpuriportfolio/6.png`,
+            ]}
+          />
+        </div>
+      );
+    },
+  },
+  {
+    id: "fastfoodcatalog",
+    category: "FrontEnd",
+    title: "Fast Food Catalog",
+    src: "/assets/projects-screenshots/fastfoodcatalog/1.png",
+    screenshots: ["1.png"],
+    live: "",
+    github: "https://github.com/amirhzarei/fast-food-catalog",
+    skills: {
+      frontend: [PROJECT_SKILLS.js, PROJECT_SKILLS.react, PROJECT_SKILLS.css, PROJECT_SKILLS.html],
+      backend: [],
+    },
+    get content() {
+      return (
+        <div>
+          <TypographyP className="font-mono ">
+            A simple fast food catalog project is a web application that displays a menu of food items in an organized, browsable format, typically mimicking the experience of viewing a restaurant's menu online. The project usually features a clean, responsive layout with food categories like burgers, pizzas, drinks, and desserts, where each item displays an image, name, description, and price.
+          </TypographyP>
+          <ProjectsLinks live={this.live} repo={this.github} />
+          <SlideShow
+            images={[
+              `${BASE_PATH}/fastfoodcatalog/1.png`,
+            ]}
+          />
+        </div>
+      );
+    },
+  },
+  {
+    id: "ifs",
+    category: "Web Development",
+    title: "IFS",
+    src: "/assets/projects-screenshots/ifs/1.png",
+    screenshots: ["1.png", "2.png", "3.png", "4.png", "5.png"],
+    live: "https://www.ifscurrency.com/",
+    github: "",
+    skills: {
+      frontend: [PROJECT_SKILLS.js, PROJECT_SKILLS.next, PROJECT_SKILLS.css, PROJECT_SKILLS.html, PROJECT_SKILLS.tailwind],
+      backend: [PROJECT_SKILLS.aws],
+    },
+    get content() {
+      return (
+        <div>
+          <TypographyP className="font-mono ">
+            An IFS Currency website project would be a comprehensive money transfer platform that enables users to send money globally through a streamlined three-step process. The website features a user-friendly interface with "Register Online" through quick sign-up, "Set Your Transfer" to choose amounts with real-time exchange rates, and "Confirm and Send" to finalize secure payments.
+          </TypographyP>
+          <ProjectsLinks live={this.live} repo={this.github} />
+          <SlideShow
+            images={[
+              `${BASE_PATH}/ifs/1.png`,
+              `${BASE_PATH}/ifs/2.png`,
+              `${BASE_PATH}/ifs/3.png`,
+              `${BASE_PATH}/ifs/4.png`,
+              `${BASE_PATH}/ifs/5.png`,
+            ]}
+          />
+        </div>
+      );
+    },
+  },
+  {
+    id: "kixy",
+    category: "Web Development",
+    title: "Kixy",
+    src: "/assets/projects-screenshots/kixy/1.png",
+    screenshots: ["1.png", "2.png", "3.png", "4.png", "5.png"],
+    live: "https://www.kixy.com",
+    github: "",
+    skills: {
+      frontend: [PROJECT_SKILLS.js, PROJECT_SKILLS.next, PROJECT_SKILLS.css, PROJECT_SKILLS.html, PROJECT_SKILLS.tailwind, PROJECT_SKILLS.framerMotion],
+      backend: [],
+    },
+    get content() {
+      return (
+        <div>
+          <TypographyP className="font-mono ">
+            A Kixy website project would focus on creating a modern social finance platform with a vibrant, user-friendly interface that emphasizes the social aspect of money management. The core features include "Send Money," "Request Money," and "Split Bills" International Money Transfer | Send Money Abroad with Wise functionality, all integrated within a social messaging environment. The website would likely feature a colorful, mobile-first design with chat-like interfaces, group transaction capabilities, and social features that make financial interactions feel more like conversations with friends.
+          </TypographyP>
+          <ProjectsLinks live={this.live} repo={this.github} />
+          <SlideShow
+            images={[
+              `${BASE_PATH}/kixy/1.png`,
+              `${BASE_PATH}/kixy/2.png`,
+              `${BASE_PATH}/kixy/3.png`,
+              `${BASE_PATH}/kixy/4.png`,
+              `${BASE_PATH}/kixy/5.png`,
+            ]}
+          />
+        </div>
+      );
+    },
+  },
+  {
+    id: "oranex",
+    category: "Web Development",
+    title: "Oranex.ir",
+    src: "/assets/projects-screenshots/oranex/1.png",
+    screenshots: ["1.png", "2.png", "3.png", "4.png", "5.png"],
+    live: "https://www.oranex.ir",
+    github: "",
+    skills: {
+      frontend: [PROJECT_SKILLS.js, PROJECT_SKILLS.next, PROJECT_SKILLS.css, PROJECT_SKILLS.html, PROJECT_SKILLS.tailwind],
+      backend: [],
+    },
+    get content() {
+      return (
+        <div>
+          <TypographyP className="font-mono ">
+            An Oranex website project would focus on creating a bilingual (Persian/English) investment platform with multiple asset trading capabilities. The core features include gold market investment opportunities with any amount of capital, cryptocurrency trading with easy buy/sell processes, physical gold purchasing with minimal fees, and gift card functionality for valuable assets.
+          </TypographyP>
+          <ProjectsLinks live={this.live} repo={this.github} />
+          <SlideShow
+            images={[
+              `${BASE_PATH}/oranex/1.png`,
+              `${BASE_PATH}/oranex/2.png`,
+              `${BASE_PATH}/oranex/3.png`,
+              `${BASE_PATH}/oranex/4.png`,
+              `${BASE_PATH}/oranex/5.png`,
+            ]}
+          />
+        </div>
+      );
+    },
+  },
+  {
+    id: "oranexcom",
+    category: "Web Development",
+    title: "Oranex.com",
+    src: "/assets/projects-screenshots/oranexcom/1.png",
+    screenshots: ["1.png", "2.png", "3.png", "4.png", "5.png"],
+    live: "https://www.oranex.com",
+    github: "",
+    skills: {
+      frontend: [PROJECT_SKILLS.js, PROJECT_SKILLS.next, PROJECT_SKILLS.css, PROJECT_SKILLS.html, PROJECT_SKILLS.tailwind],
+      backend: [],
+    },
+    get content() {
+      return (
+        <div>
+          <TypographyP className="font-mono ">
+            An Oranex website project would focus on creating a bilingual (Persian/English) investment platform with multiple asset trading capabilities. The core features include gold market investment opportunities with any amount of capital, cryptocurrency trading with easy buy/sell processes, physical gold purchasing with minimal fees, and gift card functionality for valuable assets.
+          </TypographyP>
+          <ProjectsLinks live={this.live} repo={this.github} />
+          <SlideShow
+            images={[
+              `${BASE_PATH}/oranexcom/1.png`,
+              `${BASE_PATH}/oranexcom/2.png`,
+              `${BASE_PATH}/oranexcom/3.png`,
+              `${BASE_PATH}/oranexcom/4.png`,
+              `${BASE_PATH}/oranexcom/5.png`,
             ]}
           />
         </div>
